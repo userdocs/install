@@ -37,11 +37,11 @@ conf_proftpd="https://raw.githubusercontent.com/userdocs/install/master/applicat
 conf_sftp="https://raw.githubusercontent.com/userdocs/install/master/applications/proftpd/conf/sftp.conf"
 conf_ftps="https://raw.githubusercontent.com/userdocs/install/master/applications/proftpd/conf/ftps.conf"
 #
-wget -qO ~/proftpd.tar.gz https://github.com/proftpd/proftpd/archive/v1.3.6c.tar.gz
+wget -qO ~/proftpd.tar.gz https://github.com/proftpd/proftpd/archive/v1.3.7.tar.gz
 tar xf ~/proftpd.tar.gz
 cd "$(tar tf ~/proftpd.tar.gz | head -1 | cut -f1 -d"/")"
 #
-install_user="$(whoami)" install_group="$(whoami)" ./configure --prefix="$install_dir" --enable-openssl --enable-sodium --enable-dso --enable-nls --enable-ctrls --with-shared=mod_ratio:mod_readme:mod_sftp:mod_tls:mod_ban:mod_shaper
+install_user="$(whoami)" install_group="$(whoami)" ./configure --prefix="$install_dir" --enable-openssl --enable-sodium --enable-dso --enable-nls --enable-ctrls --with-shared=mod_ratio:mod_readme:mod_sftp:mod_tls:mod_ban:mod_shaper:mod_ident
 make
 make install
 #
